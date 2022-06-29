@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <br>
+    {% if user.is_authenticated %}
+    <h1>글 목록</h1><br>
+    <div>
+
+        {% for blog in blogs %}
+        <div>
+            <h1>{{blog.title}}</h1>
+            {% if blog.writer %}
+                {% if 'user' in blog.writer.username %}
+                    <h3>작성자 : {{ blog.writer.last_name }} {{ blog.writer.first_name }}</h3>
+                {% else %}
+                    <h3>작성자 : {{ blog.writer }}</h3>
+                {% endif %}
+            {% else %}
+                <h3>작성자 : 알 수 없음</h3>
+            {% endif %}
+            
+            {{blog.summary}}<br>
+            <a href="{% url 'main:detail' blog.id %}">...자세히</a><hr>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <a href="{% url 'account_login'%}" class="btn btn-warning">로그인</a>
+    <a href="{% url 'account_signup' %}" class="btn btn-warning">회원가입</a>
+
+    {% endif %}
+{% endblock %}
