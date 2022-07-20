@@ -20,7 +20,9 @@
                     <a class="nav-link" href="{% url 'account_logout' %}">로그아웃</a>
                 </li>
                 <!--좋아요 한 목록 링크 추가-->
-                
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'items:my_like' request.user.id %}">내 좋아요 목록</a>
+                </li>
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_login' %}">로그인</a>
