@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1><상세보기 페이지></h1>
+    <br>
+    <h3>글 제목 : {{ post.title }} </h3><br>
+    <h3>글 내용 : {{ post.content }} </h3><br>
+    <h3>작성 시각 : {{ post.created_at }} </h3><br>
+    <h4>조회 수: {{ post.view_count }} </h4><br>
+
+    {% if post.user %}
+        <h3> 작성자 : {{ post.user }}</h3>
+    {% else %}
+        <h3> 작성자 : 알수 없음</h3>
+    {% endif %}
+
+    {% if post.image %}
+        <img src="{{ post.image.url }}" width="500px" height="500px">
+    {% endif %}
+    <br>
+
+    {% if post.user == user %}
+        <a href="{% url 'items:delete' post.pk %}"> 삭제하기 </a>
+    {% endif %}
+
+<!-- 4. 좋아요 버튼 노출-->
+
+</div>
+
+
+<!-- 5. ajax 적용하기-->
+
+{% endblock %}
