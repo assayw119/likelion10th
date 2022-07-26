@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h1>{{user.username}}</h1>
+    <div>
+        {% for post in posts %}
+
+        <a href="{% url 'main:detail' post.id %}">{{post.acti_title}}</a><hr>
+        
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

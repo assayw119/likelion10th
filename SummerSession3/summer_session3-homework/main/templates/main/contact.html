@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="header">
+            <h1 class="Hi">☎️ Contact Me ☎️</h1>
+        </div>
+    </div>
+
+    <main>
+        <h1 class="visually-hidden">Contact</h1>
+    
+        <div class="container px-4" id="featured-3">
+            <h2 class="pb-2 border-bottom">Contact</h2>
+            <div class="row g-4 py-5 row-cols-lg-3">
+                <div>
+                    <h4>Phone : 010-9143-9799</h4>
+                    <br>
+                    <h4>E-mail : assayw119@naver.com</h4>
+                    <div>
+                        <br>
+                        <h4>Instagram : 
+                            <a href="https://www.instagram.com/y_woong__/" target="_blank" class="instagram">
+                                <img src="{% static 'image/insta.jpeg' %}" width="50" height="50">
+                            </a>
+                        </h4>
+                        <br>
+                        <h4>Naver Blog :
+                            <a href="https://blog.naver.com/assayw119" target="_blank" class="instagram">
+                                <img src="{% static 'image/naver.png' %}" width="50" height="50">
+                            </a>
+                        </h4>
+                        <br>
+                        <h4>Tistory Blog :
+                            <a href="https://heroeswillnotdie.tistory.com/" target="_blank" class="instagram">
+                                <img src="{% static 'image/tistory.png' %}" width="50" height="50">
+                            </a>
+                        </h4>
+                        <br>
+                        <h4>Github :
+                            <a href="https://github.com/assayw119" target="_blank" class="instagram">
+                                <img src="{% static 'image/github.jpeg' %}" width="50" height="50">
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="contact_image">
+                        <img src="{% static 'image/profile2.png' %}">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="b-example-divider"></div>
+    </main>
+        
+                
+{% endblock %}

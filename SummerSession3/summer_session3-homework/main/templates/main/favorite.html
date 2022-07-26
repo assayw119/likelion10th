@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="header">
+            <h1 class="Hi">PYW's Favorite</h1>
+            <h2>💁‍♂️</h2>
+        </div>
+    </div>
+
+    <main>
+        <h1 class="visually-hidden">Favorite</h1>
+    
+        <div class="container px-4" id="featured-3">
+            <h2 class="pb-2 border-bottom">Favorite</h2>
+            {% if user.is_authenticated %}
+                <a href="{%url 'main:favorite_new'%}">추가하기</a>
+            {% endif %}
+            <div class="row g-4 py-5 row-cols-lg-3">
+                {% for favorite in favorites %}
+                    <div class="favorite" style="margin-bottom: 50px;">
+                        <a href="{% url 'main:favorite_detail' favorite.id %}">
+                            <div class="favorite_image" style="height: 250px;">
+                                <h3 class="favorite_name">{{favorite.favo_title}}</h3>
+                                <img src="../media/{{favorite.favo_image}}">
+                                <hr>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+    </main>
+        
+{% endblock %}

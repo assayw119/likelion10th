@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{%url 'main:favorite_create' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>활동 제목 : <input type="text" name="favo_title"></p>
+    <p>활동 사진 : <input type="file" name="favo_image"></p>
+    <button type="submit">제출</button>
+
+</form>    
+{% endblock %}

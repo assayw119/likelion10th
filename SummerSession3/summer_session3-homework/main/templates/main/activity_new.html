@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{%url 'main:create' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>활동 제목 : <input type="text" name="acti_title"></p>
+    <p>활동 날짜 : <input type="text" name="acti_date"></p>
+    <p>활동 내용 : <textarea type="text" name="acti_insert" id="" cols="30" rows="10"></textarea></p>
+    <button type="submit">제출</button>
+
+</form>    
+{% endblock %}

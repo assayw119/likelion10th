@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="header">
+            <h1 class="Hi">PYW's Activities</h1>
+            <h2>💁‍♂️</h2>
+        </div>
+    </div>
+
+    <main>
+    
+        <div class="container px-4" id="featured-3">
+            <div class="b-example-divider"></div>
+        
+            <div class="contain px-4 py-5" id="hanging-icons">
+                <h2 class="pb-2 border-bottom">Activities</h2>
+                {% if user.is_authenticated %}
+                <a href="{%url 'main:new'%}">추가하기</a>
+                {% endif %}
+                <p><br>
+                    {% for activity in activities %}
+                    <div class="activity">
+                        {{activity.acti_date}}&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'main:activitydetail' activity.id %}" class="activity_button">
+                            {{activity.acti_insert}}<br><br>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </p>
+            </div>
+
+            <div class="b-example-divider"></div>
+        </div>
+    </main>
+        
+        
+        
+    
+{% endblock %}
