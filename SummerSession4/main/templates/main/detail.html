@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{blog.title}}</h1>
+    {% if blog.writer %}
+    작성자 : <a href="{% url 'users:mypage' blog.writer.id %}">{{ blog.writer }}</a>
+    {% else %}
+    작성자 : 알 수 없음
+    {% endif %}
+
+    날짜 : {{blog.pub_date}}
+    <hr>
+
+    {% if blog.image %}
+    <p><img src="{{ blog.image.url }}" alt="사진"></p>
+    {% endif %}
+
+    <p>{{blog.body}}</p>
+    <a href="{% url 'main:edit' blog.id %}">수정하기</a>
+    <a href="{% url 'main:delete' blog.id %}">삭제하기</a>
+    <hr>
+    <div>
+        <form action="{%url 'main:create_comment' blog.id%}" method="POST">
+            {%csrf_token%}
+            <textarea name="content" placeholder="댓글내용입력" style="width:1300px;"></textarea>
+            <input type="submit" value="확인" style="float:right;">
+        </form> <br>
+    </div>
+    <div>
+        {% for comment in comments %}
+        <div>
+            <p>{% if comment.writer %}
+                작성자 : <!--유저프로필로 접속--> {{ comment.writer }}
+                {% else %}
+                작성자 : 알 수 없음
+                {% endif %}
+                </p>
+            <p>{{comment.content}}</p>
+            <hr>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock %}
