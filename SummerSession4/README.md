@@ -1,2 +1,0 @@
-# DGUlikelion session
-# 

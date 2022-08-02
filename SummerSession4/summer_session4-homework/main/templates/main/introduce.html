@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="header">
+            <h1 class="intro">안녕하세요, 박영웅입니다.</h1>
+        </div>
+    </div>
+
+    <main>
+        <h1 class="visually-hidden">Profile</h1>
+    
+        <div class="container px-4" id="featured-3">
+            <h2 class="pb-2 border-bottom">Profile</h2>
+            <div class="row g-4 py-5 row-cols-lg-3">
+                <div class="profile col">
+                    <div class="profile_image">
+                        <img src="{% static 'image/profile.jpg' %}">
+                    </div>
+                </div>
+                <div class="profile_info">
+                    <div>
+                        <h2>박 영 웅 (朴英雄)</h2>
+                        <h5>PARK YOUNG WOONG</h5>
+                        <p>1998. 03. 05
+                        <br>ESFJ</p>
+                    </div>
+                    <div>
+                        <p>광명북고등학교 졸업</p>
+                        <p>동국대학교 산업시스템공학과 17학번</p>
+                        <p>데이터사이언스 소프트웨어 연계전공</p>
+                        <p>4학년 1학기 재학</p>
+                    </div>
+                </div>
+            </div>
+        <div class="b-example-divider"></div>
+    </main>
+            
+{% endblock %}

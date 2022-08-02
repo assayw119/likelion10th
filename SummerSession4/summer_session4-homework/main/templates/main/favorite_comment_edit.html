@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>EDIT COMMENT</h1>
+<form action="{%url 'main:favorite_update_comment' comment.id%}" method="POST">
+    {%csrf_token%}
+    <textarea name="content">{{comment.content}}</textarea>
+    <input type="submit" value="확인">
+</form>
+
+{% endblock %}
