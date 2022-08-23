@@ -45,7 +45,7 @@ def movie_detail_update_delete(request, movie_pk):
 
 @api_view(['GET', 'POST'])
 def review_list_create(request, movie_pk):
-    movie = Movie.objects.get(pk=movie_pk)
+    movie = get_object_or_404(Movie, pk=movie_pk)
     if request.method == 'GET':
         reviews = Review.objects.filter(movie=movie)
         serializer = ReviewListSerializer(reviews, many=True)
@@ -53,12 +53,10 @@ def review_list_create(request, movie_pk):
         return Response(data=serializer.data)
     
     if request.method == 'POST':
-        request.data['movie'] = movie_pk
-        # movie = get_list_or_404(Movie, pk=movie_pk)
         serializer = ReviewListSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(data=serializer.data)
+            serializer.save(movie=movie)
+        return Response(data=serializer.data)
 
 @api_view(['GET','PATCH','DELETE'])
 def review_detail(request, review_pk):
